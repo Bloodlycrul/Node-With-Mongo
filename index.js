@@ -21,8 +21,12 @@ const userSchema = new mongoose.Schema({
 //Model For Mongoose
 const User = mongoose.model('Students', userSchema);
 
+const UserList = async()=>{
+  let userData = await User.find();
+  console.log(userData);
+}
 
-
+UserList();
 
 const user = [];
 
