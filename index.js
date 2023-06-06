@@ -48,19 +48,32 @@ app.post("/scusses", (req, res) => {
       number : number,
     })
     data.save();
-    console.log();
   
     
   }
- 
-  add();
+
 
     res.render("scusses");
 }
 );
+
+app.get("/calculator", (req, res) => {
+  res.render('calculator');
+});
+
+app.post('/add', (req, res)=>{
+  let result = 0;
+  let {num1, num2} = req.body;
+  result = Number(num1) + Number(num2);
+  res.render('scusses', {final : result})
+})
+
 app.get("*", (req, res) => {
   res.send("404 Page Not Found");
 });
+
+
+
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
